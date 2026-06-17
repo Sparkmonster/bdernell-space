@@ -1,0 +1,194 @@
+html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: monospace;
+      background: black;
+      color: #00ffcc;
+    }
+    #vanta-bg {
+      width: 100%;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -2;
+    }
+    main {
+      /*min-height: 100vh;*/
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 60px;
+    }
+    #terrain-container {
+        width: 100%;
+        height: 100vh; /* or 400px if you want a fixed height */
+        position: relative;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    canvas {
+        position: static !important;
+        margin: auto;
+        display: block;
+    }
+    #data-core {
+      text-align: center;
+      min-height: auto;
+      width: 100%;
+      z-index: 2;
+    }
+    .nav-button {
+      display: inline-block;
+      margin: 10px;
+      padding: 20px 32px;
+      border: 2px solid #00ffcc;
+      border-radius: 8px;
+      cursor: pointer;
+      animation: float 6s ease-in-out infinite;
+      color: #00ffcc;
+      text-decoration: none; 
+      text-align: center;
+      font-size: 22px;
+    }
+    .nav-button:hover {
+      animation: hover-float 1.5s ease-in-out infinite;
+      background-color: rgba(0, 255, 204, 0.2);
+    }
+
+    @media (max-width: 768px) {
+     .nav-button {
+       display: block;
+       width: 100%;
+       text-align: center;
+     }
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      25% { transform: translateY(-6px); }
+      50% { transform: translateY(-3px); }
+      75% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+    @keyframes hover-float {
+      0% { transform: translateY(-10px); }
+      50% { transform: translateY(-18px); }
+      100% { transform: translateY(-10px); }
+    }
+    footer {
+      background: black;
+      color: #00ffcc;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .controls {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .hero {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+            flex-direction: row;
+        }
+        .hero.reverse {
+            flex-direction: row-reverse;
+        }
+        .hero .left, .hero .right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+        }
+        .hero .left {
+            background: #f4f4f4;
+            flex-direction: column;
+        }
+        .hero .right {
+            background: #000;
+            position: relative;
+            overflow: hidden;
+        }
+        .media-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        video, img, iframe {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        .image-container, .single-image-container, .gif-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .image-container img, .single-image-container img, .gif-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .image-container img {
+            position: absolute;
+            opacity: 0;
+        }
+        .image-container img:nth-child(1) {
+            animation: fadeInOut 18s infinite 0s;
+        }
+        .image-container img:nth-child(2) {
+            animation: fadeInOut 18s infinite 6s;
+        }
+        .image-container img:nth-child(3) {
+            animation: fadeInOut 18s infinite 12s;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            33.33% { opacity: 1; }
+            43.33% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                height: auto;
+            }
+            .hero .left, .hero .right {
+                width: 100%;
+                height: 50vh;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero .left, .hero .right {
+                height: auto;
+                padding: 15px;
+            }
+        }
